@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>AirAsia Mobile Redirect</title>
+<style>
+.mobile-link {font-size:3em;}
+.mobile-div {text-align:center;margin:3em auto;}
+</style>
+</head>
+<body>
+<script type="text/javascript">
+var $_GET = {};
+if(document.location.toString().indexOf('?') !== -1) {
+    var query = document.location
+                   .toString()
+                   .replace(/^.*?\?/, '')
+                   .replace(/#.*$/, '')
+                   .split('&');
+
+    for(var i=0, l=query.length; i<l; i++) {
+       var aux = decodeURIComponent(query[i]).split('=');
+       $_GET[aux[0]] = aux[1];
+    }
+}
+
+var origin = $_GET['origin'];
+var destination = $_GET['destination'];
+var page = $_GET['page'];
+var carrierCode = $_GET['carrierCode'];
+var flightNumber = $_GET['flightNumber'];
+var departDate = $_GET['departDate'];
+
+var deeplink = "airasia://"+page+"?origin="+origin+"&destination="+destination+"&carrierCode="+carrierCode+"&flightNumber="+flightNumber+"&departDate="+departDate;
+
+if(navigator.userAgent.toLowerCase().indexOf("android") > -1){
+
+  var deeplink = "intent://"+page+"/#Intent;scheme=airasia;package=com.airasia.mobile;S.browser_fallback_url=http%3A%2F%2Fairasia.com;end";
+  var div = document.createElement('div');
+  var a = document.createElement('a');
+  var linkText = document.createTextNode("Open AirAsia Mobile App");
+  var a_att = document.createAttribute("class");
+  var div_att = document.createAttribute("class");
+
+  a_att.value = "mobile-link";
+  div_att.value = "mobile-div";
+  a.setAttributeNode(a_att);
+  div.setAttributeNode(div_att);
+  a.appendChild(linkText);
+  a.title = "Open AirAsia Mobile App";
+  a.href = deeplink;
+  div.appendChild(a);
+  document.body.appendChild(div);
+
+} else if (navigator.userAgent.toLowerCase().indexOf("iphone") > -1 || navigator.userAgent.toLowerCase().indexOf("safari") > -1){
+
+  window.location.href = deeplink;
+  window.setTimeout(function(){window.location.href = 'https://apps.apple.com/us/app/airasia/id565050268';},7000);
+
+} else {
+
+  window.location.href = 'https://www.airasia.com/mobile/pg/';
+
+}
+</script>
+</body>
+</html>
