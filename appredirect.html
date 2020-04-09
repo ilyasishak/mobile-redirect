@@ -40,11 +40,11 @@ var amv = $_GET['amv'];
 var isi = $_GET['isi'];
 var ibi = $_GET['ibi'];
 
-var deeplink = "airasia://"+page+"?origin="+origin+"&destination="+destination+"&carrierCode="+carrierCode+"&flightNumber="+flightNumber+"&departDate="+departDate+"&promoCode="+promoCode+"&departureStation="+departureStation+"&arrivalStation="+arrivalStation+"&promoStartDate="+promoStartDate+"&promoEndDate="+promoEndDate+"&apn="+apn+"&amy="+amy+"&isi="+isi+"&ibi="+ibi;
+var deeplink = "airasia://"+page+"?origin="+origin+"&destination="+destination+"&carrierCode="+carrierCode+"&flightNumber="+flightNumber+"&departDate="+departDate+"&promoCode="+promoCode+"&departureStation="+departureStation+"&arrivalStation="+arrivalStation+"&promoStartDate="+promoStartDate+"&promoEndDate="+promoEndDate+"&apn="+apn+"&amv="+amv+"&isi="+isi+"&ibi="+ibi;
 
 if(navigator.userAgent.toLowerCase().indexOf("android") > -1){
 
-  var deeplink = "intent://"+page+"/#Intent;scheme=airasia;package=com.airasia.mobile;S.browser_fallback_url=http%3A%2F%2Fairasia.com;S.origin="+origin+";S.destination="+destination+";S.carrierCode="+carrierCode+";S.flightNumber="+encodeURI(flightNumber)+";S.departDate="+encodeURI(departDate)+";S.promoCode="+encodeURI(promoCode)+";S.departureStation="+departureStation+";S.arrivalStation="+arrivalStation+";S.promoStartDate="+encodeURI(promoStartDate)+";S.promoEndDate="+encodeURI(promoEndDate)+";S.apn="+apn+";S.amy="+amy+";S.isi="+isi+";S.ibi="+ibi+";end";
+  var deeplink = "intent://"+page+"/#Intent;scheme=airasia;package=com.airasia.mobile;S.browser_fallback_url=http%3A%2F%2Fairasia.com;S.origin="+origin+";S.destination="+destination+";S.carrierCode="+carrierCode+";S.flightNumber="+encodeURI(flightNumber)+";S.departDate="+encodeURI(departDate)+";S.promoCode="+encodeURI(promoCode)+";S.departureStation="+departureStation+";S.arrivalStation="+arrivalStation+";S.promoStartDate="+encodeURI(promoStartDate)+";S.promoEndDate="+encodeURI(promoEndDate)+";S.apn="+apn+";S.amv="+amv+";S.isi="+isi+";S.ibi="+ibi+";end";
   var div = document.createElement('div');
   var a = document.createElement('a');
   var linkText = document.createTextNode("Open AirAsia Mobile App");
