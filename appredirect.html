@@ -40,7 +40,7 @@ var deeplink = "airasia://"+page+"?origin="+origin+"&destination="+destination+"
 
 if(navigator.userAgent.toLowerCase().indexOf("android") > -1){
 
-  var deeplink = "intent://"+page+"/#Intent;scheme=airasia;package=com.airasia.mobile;S.browser_fallback_url=http%3A%2F%2Fairasia.com;S.origin="+origin+";S.destination="+destination+";S.carrierCode="+carrierCode+";S.flightNumber="+encodeURI(flightNumber)+";S.departDate="+encodeURI(departDate)+";S.promoCode="+encodeURI(promoCode)+";S.departureStation="+departureStation+";S.arrivalStation="+arrivalStation+";S.promoStartDate="+encodeURI(promoStartDate)+";S.promoEndDate="+encodeURI(promoEndDate)+";end";
+  var deeplink = "intent://"+page+"/#Intent;scheme=airasia;package=com.airasia.mobile;S.browser_fallback_url=http%3A%2F%2Fairasia.com%2F%3Forigin%3D"+origin+"%26destination%3D"+destination+"%26carrierCode%3D"+carrierCode+"%26flightNumber%3D"+flightNumber+"%26departDate%3D"+departDate+"%26promoCode%3D"+promoCode+"%26departureStation%3D"+departureStation+"%26arrivalStation%3D"+arrivalStation+";S.origin="+origin+";S.destination="+destination+";S.carrierCode="+carrierCode+";S.flightNumber="+encodeURI(flightNumber)+";S.departDate="+encodeURI(departDate)+";S.promoCode="+encodeURI(promoCode)+";S.departureStation="+departureStation+";S.arrivalStation="+arrivalStation+";S.promoStartDate="+encodeURI(promoStartDate)+";S.promoEndDate="+encodeURI(promoEndDate)+";end";
   var div = document.createElement('div');
   var a = document.createElement('a');
   var linkText = document.createTextNode("Open AirAsia Mobile App");
