@@ -41,12 +41,18 @@ var departureStation = $_GET['departureStation'];
 var arrivalStation = $_GET['arrivalStation'];
 var promoStartDate = $_GET['promoStartDate'];
 var promoEndDate = $_GET['promoEndDate'];
+var debug = $_GET['debug'];
 
 var deeplink = "airasia://"+page+"?"+queryString;
 
 if(navigator.userAgent.toLowerCase().indexOf("android") > -1){
 
-  var deeplink = "intent://"+page+"/#Intent;scheme=airasia;package=com.airasia.mobile;S.browser_fallback_url=http%3A%2F%2Fairasia.com%2F%3F"+encodeURIComponent(queryString)+";S.origin="+origin+";S.destination="+destination+";S.carrierCode="+carrierCode+";S.flightNumber="+encodeURI(flightNumber)+";S.departDate="+encodeURI(departDate)+";S.promoCode="+encodeURI(promoCode)+";S.departureStation="+departureStation+";S.arrivalStation="+arrivalStation+";S.promoStartDate="+encodeURI(promoStartDate)+";S.promoEndDate="+encodeURI(promoEndDate)+";end";
+    if(debug == "1") {
+        var deeplink = "intent://"+page+"/#Intent;scheme=airasia;package=com.airasia.mobile.debug;S.browser_fallback_url=http%3A%2F%2Fairasia.com%2F%3F"+encodeURIComponent(queryString)+";S.origin="+origin+";S.destination="+destination+";S.carrierCode="+carrierCode+";S.flightNumber="+encodeURI(flightNumber)+";S.departDate="+encodeURI(departDate)+";S.promoCode="+encodeURI(promoCode)+";S.departureStation="+departureStation+";S.arrivalStation="+arrivalStation+";S.promoStartDate="+encodeURI(promoStartDate)+";S.promoEndDate="+encodeURI(promoEndDate)+";end";
+    } else {
+        var deeplink = "intent://"+page+"/#Intent;scheme=airasia;package=com.airasia.mobile;S.browser_fallback_url=http%3A%2F%2Fairasia.com%2F%3F"+encodeURIComponent(queryString)+";S.origin="+origin+";S.destination="+destination+";S.carrierCode="+carrierCode+";S.flightNumber="+encodeURI(flightNumber)+";S.departDate="+encodeURI(departDate)+";S.promoCode="+encodeURI(promoCode)+";S.departureStation="+departureStation+";S.arrivalStation="+arrivalStation+";S.promoStartDate="+encodeURI(promoStartDate)+";S.promoEndDate="+encodeURI(promoEndDate)+";end";
+    }
+
   var div = document.createElement('div');
   var a = document.createElement('a');
   var linkText = document.createTextNode("Open AirAsia Mobile App");
